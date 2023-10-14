@@ -1,0 +1,16 @@
+.header {
+  height: 10vh;
+  padding-left: 10rem;
+}
+
+@media (max-width: 1200px) {
+  .header {
+    padding-left: 7rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding-left: 2rem;
+  }
+}

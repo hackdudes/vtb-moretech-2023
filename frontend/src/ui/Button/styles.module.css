@@ -1,0 +1,30 @@
+.button {
+  padding: 0.5rem 1.5rem;
+
+  text-align: center;
+  font-size: var(--font-base);
+
+  border-radius: 1rem;
+  border: none;
+
+  cursor: pointer;
+}
+
+.btnOutline {
+  border: 1px solid var(--color-blue);
+  background-color: var(--color-white);
+  color: var(--color-blue);
+}
+
+.btnOutline:hover {
+  background-color: var(--color-grey);
+}
+
+.btnFancy {
+  background-color: var(--color-blue);
+  color: var(--color-white);
+}
+
+.btnFancy:hover {
+  background-color: var(--color-blue-dark);
+}
