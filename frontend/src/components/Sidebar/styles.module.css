@@ -1,0 +1,32 @@
+.sidebar {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+
+  height: 82vh;
+  width: 25rem;
+  padding: 2rem 1rem;
+
+  background-color: var(--color-white);
+  border-radius: 1rem;
+  box-shadow: 1px 1px 8px 0px rgba(34, 60, 80, 0.15);
+}
+
+.input {
+  margin-bottom: 1rem;
+}
+
+.btns {
+  display: flex;
+  gap: 0.7rem;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    top: auto;
+    left: 0;
+
+    width: 100%;
+    transform: translateY(-25%);
+  }
+}
