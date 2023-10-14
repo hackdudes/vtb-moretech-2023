@@ -1,33 +1,20 @@
-import React from "react";
-
-import Button from "../../ui/Button";
-import { ButtonTheme } from "../../ui/Button";
-import InputBase from "../../ui/Input";
+import { FC } from "react";
 
 import styles from "./styles.module.css";
 
-const Sidebar = () => {
-  const [value, setValue] = React.useState("");
+interface SidebarProps {
+  visible: boolean;
+  handleVisible: () => void;
+}
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value);
-  };
-
-  return (
+const Sidebar: FC<SidebarProps> = ({ visible, handleVisible }) => {
+  return visible ? (
     <div className={styles.sidebar}>
-      <div className={styles.input}>
-        <InputBase
-          value={value}
-          onChange={handleChange}
-          placeholder="Город, район, улица, метро..."
-        />
-      </div>
-      <div className={styles.btns}>
-        <Button text="Отделения" />
-        <Button text="Банкоматы" theme={ButtonTheme.OUTLINE} />
+      <div className={styles.close}>
+        <img onClick={handleVisible} src="/assets/svg/close.svg" alt="close" />
       </div>
     </div>
-  );
+  ) : null;
 };
 
 export default Sidebar;
