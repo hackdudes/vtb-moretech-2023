@@ -1,0 +1,50 @@
+repos:
+  - repo: https://github.com/pycqa/isort
+    rev: dbf82f2dd09ae41d9355bcd7ab69187a19e6bf2f # frozen: 5.12.0
+    hooks:
+      - id: isort
+        args: ["--profile", "black"]
+
+  - repo: https://github.com/PyCQA/autoflake
+    rev: b142eaaa4ffee82898fb0f6a7dd0c4b0d0015ba3 # frozen: v2.2.1
+    hooks:
+      - id: autoflake
+        args:
+          [
+            "--in-place",
+            "--remove-unused-variables",
+            "--remove-all-unused-imports",
+            "--expand-star-imports",
+          ]
+
+  - repo: https://github.com/asottile/add-trailing-comma
+    rev: d2e6adc1665e461a764e2f38edfa2ef61f41be20 # frozen: v3.1.0
+    hooks:
+      - id: add-trailing-comma
+
+  - repo: https://github.com/psf/black
+    rev: "e87737140f32d3cd7c44ede75f02dcd58e55820e" # frozen: 23.9.1
+    hooks:
+      - id: black
+
+  - repo: local
+    hooks:
+      - id: mypy
+        name: mypy
+        # or `entry: poetry run mypy`, but perhaps both are the same
+        entry: mypy
+        require_serial: true
+        # From the docs it is not clear the difference between `language: python` VS `language: system`
+        language: system
+        types: [python, pyi]
+
+  - repo: https://github.com/dosisod/refurb
+    rev: 68a878e3e94db3e7cc97c0ec0aa600105acb9d40 # frozen: v1.21.0
+    hooks:
+      - id: refurb
+
+  - repo: https://github.com/charliermarsh/ruff-pre-commit
+    rev: "42f98979dbdfcd148dff424477552b8816a7cf01" # frozen: v0.0.292
+    hooks:
+      - id: ruff
+        args: [--fix, --exit-non-zero-on-fix]

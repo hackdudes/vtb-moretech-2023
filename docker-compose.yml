@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+    app:
+        image: backend
+        container_name: backend
+        build:
+            dockerfile: backend.dockerfile
+            context: .
+        ports:
+          - 8000:8000
+        command: gunicorn --bind 0.0.0.0:8000 --workers ${BACKEND_WORKERS_NUM} --worker-class uvicorn.workers.UvicornWorker backend.asgi
+        volumes:
+          - ./.env:/app/.env:ro
+
+    postgres:
+        image: postgres:16-alpine
+        container_name: postgres
+        volumes:
+          - ./data/postgres:/var/lib/postgresql/data
+        ports:
+          - ${POSTGRES_PORT}:${POSTGRES_PORT}
+        environment:
+          - POSTGRES_USER=${POSTGRES_USER}
+          - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+          - POSTGRES_DB=${POSTGRES_DB}
+        

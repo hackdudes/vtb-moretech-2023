@@ -1,0 +1,54 @@
+[tool.black]
+exclude = "^migrations/"
+max-line-length = 88
+target-version = ['py311']
+
+[tool.ruff]
+ignore = ["E501"]
+select = ["E", "F", "COM818", "COM"]
+
+fixable = ["A", "C", "D", "E", "F", "COM812", "COM819", "E402"]
+unfixable = ["B"]
+
+line-length = 88
+
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+target-version = "py311"
+
+[tool.ruff.mccabe]
+max-complexity = 10
+
+[tool.ruff.per-file-ignores]
+"__init__.py" = ["E402"]
+
+[tool.poetry]
+authors = ["Stanislav Lyubovsky <wallseat@gmail.com>"]
+description = ""
+license = "MIT"
+name = "backend"
+version = "0.1.0"
+
+[tool.poetry.dependencies]
+Django = "^4.2.6"
+celery = "^5.3.4"
+channels = "^4.0.0"
+channels-redis = "^4.1.0"
+djangorestframework = "^3.14.0"
+gunicorn = "^21.2.0"
+psycopg-binary = "^3.1.12"
+python = "^3.11"
+python-environ = "^0.4.54"
+uvicorn = "^0.23.2"
+psycopg = "^3.1.12"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.9.1"
+django-stubs = {extras = ["compatible-mypy"], version = "^4.2.4"}
+djangorestframework-stubs = {extras = ["compatible-mypy"], version = "^3.14.3"}
+mypy = "<1.6"
+pre-commit = "^3.5.0"
+
+[build-system]
+build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core"]
