@@ -161,3 +161,10 @@ cython_debug/
 
 # Local data
 data/
+
+# Local certificates
+certificates/
+
+# Django static files
+static/
+media/
