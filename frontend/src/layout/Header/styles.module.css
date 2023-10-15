@@ -1,6 +1,8 @@
 .header {
   height: 10vh;
   padding-left: 10rem;
+
+  background-color: var(--color-primary);
 }
 
 @media (max-width: 1200px) {
